@@ -86,3 +86,12 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Уважаем настройку пользователя: отключаем только декоративные анимации */
+@media (prefers-reduced-motion: reduce) {
+  .animate-sb-pulse,
+  .animate-sb-ring,
+  .animate-sb-fade-up {
+    animation: none !important;
+  }
+}

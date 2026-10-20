@@ -69,9 +69,21 @@ export default {
           border: "hsl(var(--sidebar-border) / <alpha-value>)",
           ring: "hsl(var(--sidebar-ring) / <alpha-value>)",
         },
+        // SmartBlood MVP: глубокий синий = доверие, мята = норма, красный = отклонение
+        sb: {
+          primary: "rgb(10 37 64 / <alpha-value>)", // #0A2540
+          mint: "rgb(0 196 140 / <alpha-value>)", // #00C48C
+          error: "rgb(255 77 79 / <alpha-value>)", // #FF4D4F
+          surface: "#F5F7FA",
+        },
+      },
+      boxShadow: {
+        card: "0 6px 24px rgb(10 37 64 / 0.06)",
+        cta: "0 12px 28px rgb(0 196 140 / 0.35)",
+        phone: "0 40px 90px rgb(10 37 64 / 0.45)",
       },
       fontFamily: {
-        sans: ["var(--font-geist-sans)", ...fontFamily.sans],
+        sans: ["var(--font-inter)", ...fontFamily.sans],
         mono: ["var(--font-geist-mono)", ...fontFamily.mono],
       },
       borderRadius: {
@@ -88,10 +100,25 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "sb-pulse": {
+          "0%, 100%": { transform: "scale(1)" },
+          "50%": { transform: "scale(1.12)" },
+        },
+        "sb-ring": {
+          "0%": { transform: "scale(0.7)", opacity: "0.55" },
+          "100%": { transform: "scale(1.9)", opacity: "0" },
+        },
+        "sb-fade-up": {
+          from: { opacity: "0", transform: "translateY(10px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "sb-pulse": "sb-pulse 1.6s ease-in-out infinite",
+        "sb-ring": "sb-ring 1.6s ease-out infinite",
+        "sb-fade-up": "sb-fade-up 0.45s ease-out both",
       },
     },
   },
